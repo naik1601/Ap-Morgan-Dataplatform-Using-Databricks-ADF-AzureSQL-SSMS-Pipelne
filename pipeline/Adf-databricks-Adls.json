@@ -1,0 +1,28 @@
+{
+	"name": "Adf-databricks-Adls",
+	"properties": {
+		"activities": [
+			{
+				"name": "Databricksnoeforsschemvalidation",
+				"type": "DatabricksNotebook",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"notebookPath": "/Users/shreyeshusa2024@gmail.com/Drafts/Project2-53XHJItAAB"
+				},
+				"linkedServiceName": {
+					"referenceName": "AzureDatabricksforAdls",
+					"type": "LinkedServiceReference"
+				}
+			}
+		],
+		"annotations": []
+	}
+}
