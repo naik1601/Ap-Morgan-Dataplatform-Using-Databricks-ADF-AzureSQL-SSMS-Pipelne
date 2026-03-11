@@ -15,7 +15,13 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
-					"notebookPath": "/Users/shreyeshusa2024@gmail.com/Drafts/Project2-53XHJItAAB"
+					"notebookPath": "/Users/shreyeshusa2024@gmail.com/Drafts/Project2-53XHJItAAB",
+					"baseParameters": {
+						"fileName": {
+							"value": "@pipeline().parameters.fileName",
+							"type": "Expression"
+						}
+					}
 				},
 				"linkedServiceName": {
 					"referenceName": "AzureDatabricksforAdls",
