@@ -1,0 +1,58 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "Adfprojleadingtofang"
+		},
+		"AzureDataLakeStorageforS3_accountKey": {
+			"value": ""
+		},
+		"AzureDataLakeStorageproj2_accountKey": {
+			"value": ""
+		},
+		"Transfertoazuresql_password": {
+			"value": ""
+		},
+		"AmazonS31_properties_typeProperties_accessKeyId": {
+			"value": {
+				"type": "AzureKeyVaultSecret",
+				"store": {
+					"referenceName": "AzureKeyVault1",
+					"type": "LinkedServiceReference"
+				},
+				"secretName": "s3accesskey"
+			}
+		},
+		"AzureDataLakeStorageforS3_properties_typeProperties_url": {
+			"value": "https://storageaccforprojectsgbm.dfs.core.windows.net/"
+		},
+		"AzureDataLakeStorageproj2_properties_typeProperties_url": {
+			"value": "https://azureprojectusingdb.dfs.core.windows.net/"
+		},
+		"AzureKeyVault1_properties_typeProperties_baseUrl": {
+			"value": "https://Myfirsts3proj.vault.azure.net/"
+		},
+		"AzureKeyVault2_properties_typeProperties_baseUrl": {
+			"value": "https://SecondprojectusingDB.vault.azure.net/"
+		},
+		"Transfertoazuresql_properties_typeProperties_server": {
+			"value": "firstprojects.database.windows.net"
+		},
+		"Transfertoazuresql_properties_typeProperties_database": {
+			"value": "Azures3project"
+		},
+		"Transfertoazuresql_properties_typeProperties_userName": {
+			"value": "shreyesh"
+		},
+		"StorageAccountTrigger_properties_Adf-databricks-Adls_parameters_fileName": {
+			"value": "@triggerBody().fileName"
+		},
+		"StorageAccountTrigger_properties_typeProperties_scope": {
+			"value": "/subscriptions/30e99414-3480-47ea-a9b3-b44d3529b136/resourceGroups/project2/providers/Microsoft.Storage/storageAccounts/azureprojectusingdb"
+		},
+		"Storagetriggerforjson_properties_typeProperties_scope": {
+			"value": "/subscriptions/30e99414-3480-47ea-a9b3-b44d3529b136/resourceGroups/Amazons3proj/providers/Microsoft.Storage/storageAccounts/storageaccforprojectsgbm"
+		}
+	}
+}

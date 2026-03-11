@@ -1,0 +1,147 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "Adfprojleadingtofang"
+		},
+		"AzureDataLakeStorageforS3_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'AzureDataLakeStorageforS3'"
+		},
+		"AzureDataLakeStorageproj2_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'AzureDataLakeStorageproj2'"
+		},
+		"Transfertoazuresql_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'Transfertoazuresql'"
+		},
+		"AmazonS31_properties_typeProperties_accessKeyId": {
+			"type": "object",
+			"defaultValue": {
+				"type": "AzureKeyVaultSecret",
+				"store": {
+					"referenceName": "AzureKeyVault1",
+					"type": "LinkedServiceReference"
+				},
+				"secretName": "s3accesskey"
+			}
+		},
+		"AzureDataLakeStorageforS3_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://storageaccforprojectsgbm.dfs.core.windows.net/"
+		},
+		"AzureDataLakeStorageproj2_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://azureprojectusingdb.dfs.core.windows.net/"
+		},
+		"AzureKeyVault1_properties_typeProperties_baseUrl": {
+			"type": "string",
+			"defaultValue": "https://Myfirsts3proj.vault.azure.net/"
+		},
+		"AzureKeyVault2_properties_typeProperties_baseUrl": {
+			"type": "string",
+			"defaultValue": "https://SecondprojectusingDB.vault.azure.net/"
+		},
+		"Transfertoazuresql_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "firstprojects.database.windows.net"
+		},
+		"Transfertoazuresql_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "Azures3project"
+		},
+		"Transfertoazuresql_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "shreyesh"
+		},
+		"StorageAccountTrigger_properties_Adf-databricks-Adls_parameters_fileName": {
+			"type": "string",
+			"defaultValue": "@triggerBody().fileName"
+		},
+		"StorageAccountTrigger_properties_typeProperties_scope": {
+			"type": "string",
+			"defaultValue": "/subscriptions/30e99414-3480-47ea-a9b3-b44d3529b136/resourceGroups/project2/providers/Microsoft.Storage/storageAccounts/azureprojectusingdb"
+		},
+		"Storagetriggerforjson_properties_typeProperties_scope": {
+			"type": "string",
+			"defaultValue": "/subscriptions/30e99414-3480-47ea-a9b3-b44d3529b136/resourceGroups/Amazons3proj/providers/Microsoft.Storage/storageAccounts/storageaccforprojectsgbm"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "Adfprojleadingtofang_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"AzureDataLakeStorageforS3_accountKey": {
+						"value": "[parameters('AzureDataLakeStorageforS3_accountKey')]"
+					},
+					"AzureDataLakeStorageproj2_accountKey": {
+						"value": "[parameters('AzureDataLakeStorageproj2_accountKey')]"
+					},
+					"Transfertoazuresql_password": {
+						"value": "[parameters('Transfertoazuresql_password')]"
+					},
+					"AzureDataLakeStorageforS3_properties_typeProperties_url": {
+						"value": "[parameters('AzureDataLakeStorageforS3_properties_typeProperties_url')]"
+					},
+					"AzureDataLakeStorageproj2_properties_typeProperties_url": {
+						"value": "[parameters('AzureDataLakeStorageproj2_properties_typeProperties_url')]"
+					},
+					"AzureKeyVault1_properties_typeProperties_baseUrl": {
+						"value": "[parameters('AzureKeyVault1_properties_typeProperties_baseUrl')]"
+					},
+					"AzureKeyVault2_properties_typeProperties_baseUrl": {
+						"value": "[parameters('AzureKeyVault2_properties_typeProperties_baseUrl')]"
+					},
+					"Transfertoazuresql_properties_typeProperties_server": {
+						"value": "[parameters('Transfertoazuresql_properties_typeProperties_server')]"
+					},
+					"Transfertoazuresql_properties_typeProperties_database": {
+						"value": "[parameters('Transfertoazuresql_properties_typeProperties_database')]"
+					},
+					"Transfertoazuresql_properties_typeProperties_userName": {
+						"value": "[parameters('Transfertoazuresql_properties_typeProperties_userName')]"
+					},
+					"AmazonS31_properties_typeProperties_accessKeyId": {
+						"value": "[parameters('AmazonS31_properties_typeProperties_accessKeyId')]"
+					},
+					"StorageAccountTrigger_properties_Adf-databricks-Adls_parameters_fileName": {
+						"value": "[parameters('StorageAccountTrigger_properties_Adf-databricks-Adls_parameters_fileName')]"
+					},
+					"StorageAccountTrigger_properties_typeProperties_scope": {
+						"value": "[parameters('StorageAccountTrigger_properties_typeProperties_scope')]"
+					},
+					"Storagetriggerforjson_properties_typeProperties_scope": {
+						"value": "[parameters('Storagetriggerforjson_properties_typeProperties_scope')]"
+					}
+				}
+			},
+			"dependsOn": []
+		}
+	]
+}
