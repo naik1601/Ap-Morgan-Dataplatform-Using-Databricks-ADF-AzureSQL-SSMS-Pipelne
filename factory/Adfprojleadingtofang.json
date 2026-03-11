@@ -1,0 +1,9 @@
+{
+	"name": "Adfprojleadingtofang",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "8dceb75a-23c5-461c-8bf7-912148812caa",
+		"tenantId": "71a17eee-2473-4ab7-80b7-77d631a69547"
+	}
+}

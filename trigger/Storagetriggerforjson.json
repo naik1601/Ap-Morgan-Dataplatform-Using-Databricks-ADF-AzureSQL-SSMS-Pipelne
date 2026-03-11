@@ -1,0 +1,24 @@
+{
+	"name": "Storagetriggerforjson",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Stopped",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "Staggingtosqlserver",
+					"type": "PipelineReference"
+				}
+			}
+		],
+		"type": "BlobEventsTrigger",
+		"typeProperties": {
+			"blobPathBeginsWith": "/input/blobs/stagingFolder/",
+			"ignoreEmptyBlobs": true,
+			"scope": "/subscriptions/30e99414-3480-47ea-a9b3-b44d3529b136/resourceGroups/Amazons3proj/providers/Microsoft.Storage/storageAccounts/storageaccforprojectsgbm",
+			"events": [
+				"Microsoft.Storage.BlobCreated"
+			]
+		}
+	}
+}
