@@ -8,6 +8,9 @@
 				"pipelineReference": {
 					"referenceName": "Adf-databricks-Adls",
 					"type": "PipelineReference"
+				},
+				"parameters": {
+					"fileName": "@triggerBody().fileName"
 				}
 			}
 		],
